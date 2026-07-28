@@ -80,7 +80,10 @@
 <script>
     // 1. Token (injected by GitHub Actions at deploy time)
     const MAPBOX_TOKEN = '__MAPBOX_TOKEN__';
-    if (!MAPBOX_TOKEN || MAPBOX_TOKEN === '__MAPBOX_TOKEN__') {
+    const isUnsetToken = !MAPBOX_TOKEN
+        || MAPBOX_TOKEN.startsWith('__')
+        || MAPBOX_TOKEN.includes('MAPBOX_TOKEN');
+    if (isUnsetToken) {
         throw new Error('Missing Mapbox token. Set MAPBOX_TOKEN in GitHub Actions secrets before deployment.');
     }
     mapboxgl.accessToken = MAPBOX_TOKEN;
