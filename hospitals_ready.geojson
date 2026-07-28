@@ -1,0 +1,635 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.471385,
+          31.212539
+        ]
+      },
+      "properties": {
+        "hospital": "Ruijin Hospital, Shanghai Jiao Tong University School of Medicine",
+        "hospital_name": "Ruijin Hospital, Shanghai Jiao Tong University School of Medicine",
+        "hospital_name_chinese": "瑞金医院（上海交通大学医学院附属）",
+        "city": "Shanghai",
+        "province": null,
+        "department": "Endocrinlolgy",
+        "can_continue": "Yes",
+        "can_initial": "Not Sure",
+        "can_guidance": "No"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.4568,
+          31.1968
+        ]
+      },
+      "properties": {
+        "hospital": "Zhongshan Hospital, Fudan University (East Branch)",
+        "hospital_name": "Zhongshan Hospital, Fudan University (East Branch)",
+        "hospital_name_chinese": "复旦大学附属中山医院东院",
+        "city": "Shanghai",
+        "province": null,
+        "department": "Endocrinology",
+        "can_continue": "Yes",
+        "can_initial": "Not Sure",
+        "can_guidance": "No"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.531773,
+          31.186736
+        ]
+      },
+      "properties": {
+        "hospital": "Shanghai Ninth People's Hospital",
+        "hospital_name": "Shanghai Ninth People's Hospital",
+        "hospital_name_chinese": "上海市第九人民医院",
+        "city": "Shanghai",
+        "province": null,
+        "department": "Plastic Surgery",
+        "can_continue": "Yes",
+        "can_initial": "Yes",
+        "can_guidance": "Yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.225148,
+          31.038731
+        ]
+      },
+      "properties": {
+        "hospital": "Shanghai General Hospital",
+        "hospital_name": "Shanghai General Hospital",
+        "hospital_name_chinese": "上海市第一人民医院",
+        "city": "Shanghai",
+        "province": null,
+        "department": "Not Sure",
+        "can_continue": "Yes",
+        "can_initial": "No",
+        "can_guidance": "Unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.360478,
+          39.981775
+        ]
+      },
+      "properties": {
+        "hospital": "Peking University Third Hospital",
+        "hospital_name": "Peking University Third Hospital",
+        "hospital_name_chinese": "北京大学第三医院",
+        "city": "Beijing",
+        "province": null,
+        "department": "Plastic Surgery",
+        "can_continue": "Yes",
+        "can_initial": "Yes",
+        "can_guidance": "Yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.360478,
+          39.981775
+        ]
+      },
+      "properties": {
+        "hospital": "Peking University Third Hospital",
+        "hospital_name": "Peking University Third Hospital",
+        "hospital_name_chinese": "北京大学第三医院",
+        "city": "Beijing",
+        "province": null,
+        "department": "Endocrinology",
+        "can_continue": "Yes",
+        "can_initial": "Yes",
+        "can_guidance": "Yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.360478,
+          39.981775
+        ]
+      },
+      "properties": {
+        "hospital": "Peking University Third Hospital",
+        "hospital_name": "Peking University Third Hospital",
+        "hospital_name_chinese": "北京大学第三医院",
+        "city": "Beijing",
+        "province": null,
+        "department": "Plastic Surgery",
+        "can_continue": "Yes",
+        "can_initial": "Yes",
+        "can_guidance": "Yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.360478,
+          39.981775
+        ]
+      },
+      "properties": {
+        "hospital": "Peking University Third Hospital",
+        "hospital_name": "Peking University Third Hospital",
+        "hospital_name_chinese": "北京大学第三医院",
+        "city": "Beijing",
+        "province": null,
+        "department": "Plastic Surgery",
+        "can_continue": "Yes",
+        "can_initial": "Yes",
+        "can_guidance": "Yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.360478,
+          39.981775
+        ]
+      },
+      "properties": {
+        "hospital": "Peking University Third Hospital",
+        "hospital_name": "Peking University Third Hospital",
+        "hospital_name_chinese": "北京大学第三医院",
+        "city": "Beijing",
+        "province": null,
+        "department": "Gynecolog",
+        "can_continue": "Yes (only after in-person meeting)",
+        "can_initial": "No",
+        "can_guidance": "Yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.360478,
+          39.981775
+        ]
+      },
+      "properties": {
+        "hospital": "Peking University Third Hospital",
+        "hospital_name": "Peking University Third Hospital",
+        "hospital_name_chinese": "北京大学第三医院",
+        "city": "Beijing",
+        "province": null,
+        "department": "Plastic Surgery",
+        "can_continue": "Yes (only after in-person meeting)",
+        "can_initial": "No",
+        "can_guidance": "Yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.360478,
+          39.981775
+        ]
+      },
+      "properties": {
+        "hospital": "Peking University Third Hospital",
+        "hospital_name": "Peking University Third Hospital",
+        "hospital_name_chinese": "北京大学第三医院",
+        "city": "Beijing",
+        "province": null,
+        "department": "Reconstructive Surgery (Plastic Surgery",
+        "can_continue": "Yes (only after in-person meeting)",
+        "can_initial": "No",
+        "can_guidance": "Yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.360478,
+          39.981775
+        ]
+      },
+      "properties": {
+        "hospital": "Peking University Third Hospital",
+        "hospital_name": "Peking University Third Hospital",
+        "hospital_name_chinese": "北京大学第三医院",
+        "city": "Beijing",
+        "province": null,
+        "department": "Medical Psychology",
+        "can_continue": "Yes (only after in-person meeting)",
+        "can_initial": "No",
+        "can_guidance": "Yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.360478,
+          39.981775
+        ]
+      },
+      "properties": {
+        "hospital": "Peking University Third Hospital",
+        "hospital_name": "Peking University Third Hospital",
+        "hospital_name_chinese": "北京大学第三医院",
+        "city": "Beijing",
+        "province": null,
+        "department": "Molding",
+        "can_continue": "Yes (only after in-person meeting)",
+        "can_initial": "No",
+        "can_guidance": "Yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          112.944798,
+          28.220483
+        ]
+      },
+      "properties": {
+        "hospital": "Third Xiangya Hospital of Central South University",
+        "hospital_name": "Third Xiangya Hospital of Central South University",
+        "hospital_name_chinese": "中南大学湘雅三医院",
+        "city": "Changsha",
+        "province": "Hunan",
+        "department": "Urology",
+        "can_continue": "Yes",
+        "can_initial": "Yes",
+        "can_guidance": "No"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.209903,
+          30.246566
+        ]
+      },
+      "properties": {
+        "hospital": "The Second Affiliated Hospital of Zhejiang University School of Medicine",
+        "hospital_name": "The Second Affiliated Hospital of Zhejiang University School of Medicine",
+        "hospital_name_chinese": "浙江大学医学院附属第二医院",
+        "city": "Hangzhou",
+        "province": "Zhejiang",
+        "department": "Endocrinology",
+        "can_continue": "Yes",
+        "can_initial": "Yes",
+        "can_guidance": "Yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113.40054,
+          23.124984
+        ]
+      },
+      "properties": {
+        "hospital": "The First Affiliated Hospital of Jinan University (Dongpu Campus)",
+        "hospital_name": "The First Affiliated Hospital of Jinan University (Dongpu Campus)",
+        "hospital_name_chinese": "暨南大学附属第一医院（东圃院区）",
+        "city": "Guangzhou",
+        "province": "Guangdong",
+        "department": "Gender-Specific Medicine and Intimate Rejuvenation",
+        "can_continue": "Yes",
+        "can_initial": "Yes",
+        "can_guidance": "Yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.569103,
+          38.883476
+        ]
+      },
+      "properties": {
+        "hospital": "The Second Hospital of Dalian Medical University",
+        "hospital_name": "The Second Hospital of Dalian Medical University",
+        "hospital_name_chinese": "大连医科大学附属第二医院",
+        "city": "Dalian",
+        "province": "Liaoning",
+        "department": "Endocrinology",
+        "can_continue": "Yes",
+        "can_initial": "Not Sure",
+        "can_guidance": "No"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.382665,
+          36.066938
+        ]
+      },
+      "properties": {
+        "hospital": "Qilu Hospital of Shandong University",
+        "hospital_name": "Qilu Hospital of Shandong University",
+        "hospital_name_chinese": "山东大学齐鲁医院",
+        "city": "Qingdao",
+        "province": "Shandong",
+        "department": "Endocrinology",
+        "can_continue": "Yes",
+        "can_initial": "Not Sure",
+        "can_guidance": "Yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113.923598,
+          22.532032
+        ]
+      },
+      "properties": {
+        "hospital": "Union Shenzhen Hospital, Huazhong University of Science and Technology",
+        "hospital_name": "Union Shenzhen Hospital, Huazhong University of Science and Technology",
+        "hospital_name_chinese": "华中科技大学协和深圳医院",
+        "city": "Shenzhen",
+        "province": "Guangdong",
+        "department": "Endocrinology",
+        "can_continue": "Yes",
+        "can_initial": "Not Sure",
+        "can_guidance": "Unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.42079,
+          28.655716
+        ]
+      },
+      "properties": {
+        "hospital": "Taizhou Fourth People's Hospital",
+        "hospital_name": "Taizhou Fourth People's Hospital",
+        "hospital_name_chinese": "台州市第四人民医院",
+        "city": "Taizhou",
+        "province": "Jiangsu",
+        "department": "Endocrinology",
+        "can_continue": "Yes",
+        "can_initial": "Not Sure",
+        "can_guidance": "Unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.209903,
+          30.246566
+        ]
+      },
+      "properties": {
+        "hospital": "The First Affiliated Hospital, Zhejiang University School of Medicine",
+        "hospital_name": "The First Affiliated Hospital, Zhejiang University School of Medicine",
+        "hospital_name_chinese": "浙江大学医学院附属第一医院",
+        "city": "Hangzhou",
+        "province": "Zhejiang",
+        "department": "Endocrinology",
+        "can_continue": "Yes",
+        "can_initial": "Not Sure",
+        "can_guidance": "Unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.778103,
+          36.069771
+        ]
+      },
+      "properties": {
+        "hospital": "Gansu Provincial Maternal and Child Health Hospital",
+        "hospital_name": "Gansu Provincial Maternal and Child Health Hospital",
+        "hospital_name_chinese": "甘肃省妇幼保健院",
+        "city": "Lanzhou",
+        "province": "Gansu",
+        "department": "Endocrinology",
+        "can_continue": "Yes",
+        "can_initial": "Not Sure",
+        "can_guidance": "Unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.868069,
+          36.047058
+        ]
+      },
+      "properties": {
+        "hospital": "The First Hospital of Lanzhou University",
+        "hospital_name": "The First Hospital of Lanzhou University",
+        "hospital_name_chinese": "兰州大学第一医院",
+        "city": "Lanzhou",
+        "province": "Gansu",
+        "department": "Endocrinology",
+        "can_continue": "Yes",
+        "can_initial": "Not Sure",
+        "can_guidance": "Unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.480704,
+          31.265028
+        ]
+      },
+      "properties": {
+        "hospital": "Shanghai 411 Hospital",
+        "hospital_name": "Shanghai 411 Hospital",
+        "hospital_name_chinese": "上海四一一医院",
+        "city": "Shanghai",
+        "province": null,
+        "department": "Plastic Surgery",
+        "can_continue": "Yes",
+        "can_initial": "Not Sure",
+        "can_guidance": "Unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.5280,
+          31.3085
+        ]
+      },
+      "properties": {
+        "hospital": "Shanghai Changhai Hospital",
+        "hospital_name": "Shanghai Changhai Hospital",
+        "hospital_name_chinese": "海军军医大学附属长海医院",
+        "city": "Shanghai",
+        "province": null,
+        "department": "Endocrinology",
+        "can_continue": "Yes",
+        "can_initial": "Not Sure",
+        "can_guidance": "Yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+         121.4629,
+          31.2335
+        ]
+      },
+      "properties": {
+        "hospital": "Shanghai Changzheng Hospital",
+        "hospital_name": "Shanghai Changzheng Hospital",
+        "hospital_name_chinese": "海军军医大学附属长征医院",
+        "city": "Shanghai",
+        "province": null,
+        "department": "Endocrinology",
+        "can_continue": "Yes",
+        "can_initial": "Not Sure",
+        "can_guidance": "Yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.702609,
+          31.190426
+        ]
+      },
+      "properties": {
+        "hospital": "Pudong New Area People's Hospital",
+        "hospital_name": "Pudong New Area People's Hospital",
+        "hospital_name_chinese": "上海市浦东新区人民医院",
+        "city": "Shanghai",
+        "province": null,
+        "department": "Endocrinology",
+        "can_continue": "Yes",
+        "can_initial": "Not Sure",
+        "can_guidance": "Yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          102.833669,
+          24.88149
+        ]
+      },
+      "properties": {
+        "hospital": "Yunnan Jiuzhou Hospital",
+        "hospital_name": "Yunnan Jiuzhou Hospital",
+        "hospital_name_chinese": "云南九洲医院",
+        "city": "Kunming",
+        "province": "Yunnan",
+        "department": "Not Sure",
+        "can_continue": "Yes",
+        "can_initial": "No",
+        "can_guidance": "No"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113.2509,
+          23.1122
+        ]
+      },
+      "properties": {
+        "hospital": "Sun Yat-sen Memorial Hospital, Sun Yat-sen University",
+        "hospital_name": "Sun Yat-sen Memorial Hospital, Sun Yat-sen University",
+        "hospital_name_chinese": "中山大学孙逸仙纪念医院",
+        "city": "Guangzhou",
+        "province": "Guangdong",
+        "department": "Not Sure",
+        "can_continue": "Yes",
+        "can_initial": "Not Sure",
+        "can_guidance": "Yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113.114489,
+          23.102804
+        ]
+      },
+      "properties": {
+        "hospital": "The Third Affiliated Hospital, Sun Yat-sen University",
+        "hospital_name": "The Third Affiliated Hospital, Sun Yat-sen University",
+        "hospital_name_chinese": "中山大学附属第三医院",
+        "city": "Guangzhou",
+        "province": "Guangdong",
+        "department": "Not Sure",
+        "can_continue": "Yes",
+        "can_initial": "Not Sure",
+        "can_guidance": "No"
+      }
+    }
+  ]
+}
