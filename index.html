@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Distribution of Transgender-Friendly Medical Resources in China</title>
+    <!-- 引入 Mapbox 的样式和 JS 库 -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet" />
+    <style>
+        body { margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+
+        /* 左上角交互面板 */
+        .control-panel {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 1;
+            background: rgba(20, 20, 25, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 18px;
+            border-radius: 12px;
+            color: #fff;
+            width: 280px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            backdrop-filter: blur(10px);
+        }
+        .control-panel h3 { margin: 0 0 8px 0; font-size: 16px; color: #fff; }
+        .control-panel p { margin: 0 0 16px 0; font-size: 12px; color: #aaa; line-height: 1.4; }
+        
+        .btn-stack { display: flex; flex-direction: column; gap: 8px; }
+        
+        .filter-btn {
+            background: #2a2b30;
+            color: #ccc;
+            border: 1px solid #444;
+            padding: 10px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+            text-align: left;
+            transition: all 0.2s ease;
+        }
+        .filter-btn:hover { background: #3a3b40; color: #fff; }
+        
+        /* 激活状态的按钮高亮 */
+        .filter-btn.active {
+            background: #00f2ff;
+            color: #000;
+            font-weight: bold;
+            border-color: #00f2ff;
+            box-shadow: 0 0 12px rgba(0, 242, 255, 0.5);
+        }
+
+        /* 鼠标移到地图点上的 Popup 气泡框样式 */
+        .mapboxgl-popup-content {
+            background: #222;
+            color: #fff;
+            padding: 12px 15px;
+            border-radius: 8px;
+            border: 1px solid #444;
+            font-size: 13px;
+        }
+        .mapboxgl-popup-anchor-top .mapboxgl-popup-tip { border-bottom-color: #222; }
+    </style>
+</head>
+<body>
+
+<div id="map"></div>
+
+<div class="control-panel">
+    <h3>Distribution of Transgender-Friendly Medical Resources in China</h3>
+    <div class="btn-stack">
+        <button id="btn-all" class="filter-btn active" onclick="updateFilter('all')">📍 All Hospitals</button>
+        <button id="btn-initial" class="filter-btn" onclick="updateFilter('initial')">🏥 Can Initiate HRT</button>
+        <button id="btn-guide" class="filter-btn" onclick="updateFilter('guide')">🧭 HRT Guidance</button>
+    </div>
+</div>
+
+<script>
+    // 1. Token (injected by GitHub Actions at deploy time)
+    const MAPBOX_TOKEN = '__MAPBOX_TOKEN__';
+    if (!MAPBOX_TOKEN || MAPBOX_TOKEN === '__MAPBOX_TOKEN__') {
+        throw new Error('Missing Mapbox token. Set MAPBOX_TOKEN in GitHub Actions secrets before deployment.');
+    }
+    mapboxgl.accessToken = MAPBOX_TOKEN;
+
+    // 2. 初始化地图
+    const chinaBounds = [
+        [73.5, 3.8],
+        [135.0, 53.5]
+    ];
+
+    const map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/dark-v11',
+        center: [103.8, 35.0],
+        zoom: 2.8,
+        projection: 'mercator',
+        renderWorldCopies: false,
+        maxBounds: chinaBounds,
+        pitchWithRotate: false,
+        dragRotate: false
+    });
+
+    // 3. 当地图加载完毕后，把数据放进去
+    map.on('load', () => {
+        map.fitBounds(chinaBounds, { padding: 20, duration: 0 });
+        fetch('./hospitals_ready.geojson')
+            .then(response => response.json())
+            .then((geojson) => {
+                const seenCoords = new Map();
+
+                const adjustedFeatures = geojson.features.map((feature) => {
+                    const coordinates = feature.geometry.coordinates;
+                    const key = `${coordinates[0].toFixed(6)},${coordinates[1].toFixed(6)}`;
+                    const groupIndex = seenCoords.get(key) || 0;
+                    seenCoords.set(key, groupIndex + 1);
+
+                    const [lng, lat] = coordinates;
+                    const jitterAmount = groupIndex > 0 ? 0.0018 * (groupIndex + 1) : 0;
+                    const angle = (groupIndex % 8) * (Math.PI / 4);
+
+                    const adjustedCoordinates = groupIndex > 0
+                        ? [lng + Math.cos(angle) * jitterAmount, lat + Math.sin(angle) * jitterAmount]
+                        : [lng, lat];
+
+                    const canInitial = String(feature.properties.can_initial || '').trim().toLowerCase();
+                    const canGuide = String(feature.properties.can_guidance || '').trim().toLowerCase();
+
+                    let serviceColor = '#8b8b8b';
+                    if (canInitial === 'yes' && canGuide === 'yes') serviceColor = '#00f2ff';
+                    else if (canInitial === 'yes') serviceColor = '#6ee7b7';
+                    else if (canGuide === 'yes') serviceColor = '#f59e0b';
+
+                    return {
+                        ...feature,
+                        geometry: {
+                            ...feature.geometry,
+                            coordinates: adjustedCoordinates
+                        },
+                        properties: {
+                            ...feature.properties,
+                            service_color: serviceColor
+                        }
+                    };
+                });
+
+                const adjustedGeojson = {
+                    ...geojson,
+                    features: adjustedFeatures
+                };
+
+                map.addSource('hospitals-data', {
+                    type: 'geojson',
+                    data: adjustedGeojson
+                });
+
+                map.addLayer({
+                    id: 'hospitals-heat',
+                    type: 'heatmap',
+                    source: 'hospitals-data',
+                    paint: {
+                        'heatmap-radius': [
+                            'interpolate', ['linear'], ['zoom'],
+                            3, 12,
+                            6, 25,
+                            8, 40
+                        ],
+                        'heatmap-opacity': 0.9,
+                        'heatmap-color': [
+                            'interpolate', ['linear'], ['heatmap-density'],
+                            0, 'rgba(0,0,0,0)',
+                            0.2, 'rgba(0, 242, 255, 0.35)',
+                            0.4, 'rgba(0, 255, 128, 0.55)',
+                            0.6, 'rgba(255, 230, 0, 0.7)',
+                            0.8, 'rgba(255, 120, 0, 0.85)',
+                            1, 'rgba(255, 255, 255, 1)'
+                        ]
+                    }
+                });
+
+                map.addLayer({
+                    id: 'hospitals-point',
+                    type: 'circle',
+                    source: 'hospitals-data',
+                    minzoom: 6,
+                    paint: {
+                        'circle-radius': 4,
+                        'circle-color': ['coalesce', ['get', 'service_color'], '#ffffff'],
+                        'circle-stroke-color': '#111111',
+                        'circle-stroke-width': 1
+                    }
+                });
+
+                const showPopup = (e) => {
+                    const feature = e.features && e.features[0];
+                    if (!feature) return;
+
+                    const props = feature.properties;
+                    const coordinates = feature.geometry.coordinates.slice();
+
+                    const canInitial = String(props.can_initial || '').trim().toLowerCase() === 'yes';
+                    const canGuide = String(props.can_guidance || '').trim().toLowerCase() === 'yes';
+                    const serviceType = canInitial && canGuide
+                        ? 'Initiate HRT + Guidance'
+                        : canInitial
+                            ? 'Initiate HRT only'
+                            : canGuide
+                                ? 'Guidance only'
+                                : 'No listed service';
+
+                    const popupContent = `
+                        <strong style="font-size:14px; color:#00f2ff;">${props.hospital_name || props.hospital || 'Unknown hospital'}</strong><br>
+                        <span style="color:#aaa;">City: ${props.city || 'Unknown'}</span><br>
+                        <hr style="border:0; border-top:1px solid #444; margin:6px 0;">
+                        <span>Initiate HRT: <b>${canInitial ? '✅ Support' : '❌ Not Support'}</b></span><br>
+                        <span>Guidance: <b>${canGuide ? '✅ Support' : '❌ Not Support'}</b></span><br>
+                        <span>Service Type: <b>${serviceType}</b></span>
+                    `;
+
+                    new mapboxgl.Popup()
+                        .setLngLat(coordinates)
+                        .setHTML(popupContent)
+                        .addTo(map);
+                };
+
+                map.on('mouseenter', 'hospitals-heat', () => { map.getCanvas().style.cursor = 'pointer'; });
+                map.on('mouseleave', 'hospitals-heat', () => { map.getCanvas().style.cursor = ''; });
+                map.on('mouseenter', 'hospitals-point', () => { map.getCanvas().style.cursor = 'pointer'; });
+                map.on('mouseleave', 'hospitals-point', () => { map.getCanvas().style.cursor = ''; });
+                map.on('click', 'hospitals-heat', showPopup);
+                map.on('click', 'hospitals-point', showPopup);
+            });
+    });
+
+    // 4. 按钮切换逻辑 (Filter)
+    function updateFilter(type) {
+        // 重置按钮 UI 样式
+        document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+
+        if (type === 'all') {
+            document.getElementById('btn-all').classList.add('active');
+            map.setFilter('hospitals-heat', null);
+            map.setFilter('hospitals-point', null);
+        } else if (type === 'initial') {
+            document.getElementById('btn-initial').classList.add('active');
+            const filter = ['==', ['to-string', ['get', 'can_initial']], 'Yes'];
+            map.setFilter('hospitals-heat', filter);
+            map.setFilter('hospitals-point', filter);
+        } else if (type === 'guide') {
+            document.getElementById('btn-guide').classList.add('active');
+            const filter = ['==', ['to-string', ['get', 'can_guidance']], 'Yes'];
+            map.setFilter('hospitals-heat', filter);
+            map.setFilter('hospitals-point', filter);
+        }
+    }
+</script>
+</body>
+</html>
