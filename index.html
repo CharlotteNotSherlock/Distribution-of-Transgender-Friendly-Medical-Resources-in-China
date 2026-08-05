@@ -105,7 +105,7 @@
 
     // 2. 初始化地图
     const chinaBounds = [
-        [73.5, 18.0],
+        [73.5, 3.0],
         [134.8, 53.6]
     ];
 
@@ -114,7 +114,7 @@
         style: 'mapbox://styles/mapbox/dark-v11',
         center: [104.0, 35.0],
         zoom: 3.2,
-        minZoom: 3.0,
+        minZoom: 2.5,
         projection: 'mercator',
         renderWorldCopies: false,
         maxBounds: chinaBounds,
@@ -124,7 +124,7 @@
 
     // 3. 当地图加载完毕后，把数据放进去
     map.on('load', () => {
-        map.fitBounds(chinaBounds, { padding: 80, maxZoom: 3.0, duration: 0 });
+        map.fitBounds(chinaBounds, { padding: 40, duration: 0 });
 
         // 并行加载边界与医院数据，再按固定顺序添加图层，避免图层顺序受网络时序影响
         Promise.all([
